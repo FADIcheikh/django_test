@@ -5,13 +5,6 @@ from django.conf.urls import url,include
 from . import views
 
 
-"""
-urlpatterns = [
-    #url('', views.index, name='index'),
-    url('', views.utilisateur_list, name='utilisateur_list'),
-    url('404/', views.utilisateur_not_found, name='utilisateur_not_found'),
-]"""
-
 urlpatterns = [
     url('',
         include([

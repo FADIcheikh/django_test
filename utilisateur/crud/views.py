@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from .models import Utilisateur
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.forms import ModelForm
-from django.http import HttpResponse,HttpRequest
+from django.http import HttpRequest
 import re
 
-##########
-from django.views.generic import UpdateView
-from django.template.loader import render_to_string
-# Create your views here.
+
 
 class UtilisateursForm(ModelForm):
     class Meta:
@@ -19,16 +16,13 @@ class UtilisateursForm(ModelForm):
 
 def index(HttpRequest):
     if HttpRequest.GET:
-        #print HttpRequest.GET
         log= HttpRequest.GET['login']
         if log == 'login':
             username = HttpRequest.GET['username']
             password = HttpRequest.GET['password']
-           # inscription = HttpRequest.GET['inscription']
 
             return utilisateur_check_login(HttpRequest,username,password)
         else:
-            #return render(HttpRequest,template_name='crud/inscription.html')
             return redirect('http://127.0.0.1:8000/crud/inscription/')
     else:
         return render(HttpRequest, template_name='crud/utilisateur_list.html')
@@ -65,7 +59,6 @@ def utilisateur_details( HttpRequest,template_name='crud/dash.html'):
         password = password.group(1)
 
         utilisateur = Utilisateur.objects.filter(login=username, psw=password)
-        #return render(request,template_name)
         data = {}
         data['object_list'] = utilisateur
         return render(HttpRequest, template_name, data)
@@ -104,14 +97,12 @@ def inscription(HttpRequest):
             last_name = HttpRequest.GET['last_name']
             password_confirmation = HttpRequest.GET['password_confirmation']
             email = HttpRequest.GET['email']
-            # inscription = HttpRequest.GET['inscription']
             if password == password_confirmation :
                 return check_db(username,password,first_name,last_name,email)
             else:
                 return redirect('http://127.0.0.1:8000/crud/inscription/')
 
         else:
-            # return render(HttpRequest,template_name='crud/inscription.html')
             return redirect('http://127.0.0.1:8000/crud/index/')
     else:
         return render(HttpRequest, template_name='crud/inscription.html')
