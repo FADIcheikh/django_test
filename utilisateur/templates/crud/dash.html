@@ -11,8 +11,18 @@
 
   </head>
   <body>
+
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+        <center>
+           <h1> Utilisateur DETAILS!</h1>
+        </center>
+
+
+</nav>
+
     <div class="container">
-        <h1> Utilisateur DETAILS!</h1>
+
         <ul>
           {% for utilisateur in object_list %}
           <li><p>Utilisateur ID:{{ utilisateur.id }}</a></p>
@@ -71,7 +81,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" name="disconnect" value="update">Modifier</button>
+          <button type="submit" class="btn btn-info btn-lg" name="disconnect" value="update">Modifier</button>
         </div>
       </div>
 
@@ -83,44 +93,6 @@
 
       {% endfor %}
 
-    <!--
-
-        <form  method="get">
-
-
-
-            <div class="container">
-  <h2>Update EMAIL</h2>
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="update email" name="email" value="{{ utilisateur.email }}" >
-    </div>
-
-          <div class="form-group">
-      <input type="hidden" class="form-control" id="name" placeholder="update password" name="nom" value="{{ utilisateur.nom }}">
-    </div>
-
-    <div class="form-group">
-      <input type="hidden" class="form-control" id="last" placeholder="update password" name="prenom" value="{{ utilisateur.pre }}">
-    </div>
-
-       <div class="form-group">
-        <input type="hidden" class="form-control" id="username" placeholder="update password" name="username" value="{{ utilisateur.login }}">
-    </div>
-
-       <div class="form-group">
-      <input type="hidden" class="form-control" id="password" placeholder="update password" name="password" value="{{ utilisateur.psw }}">
-    </div>
-
-
-
-</div>
-
-        <button type="submit" class="btn btn-outline-success" name="disconnect" value="disconnect">Déconnecter</button>
-                    <button type="submit" class="btn btn-primary" name="disconnect" value="update">Modifier</button>
-
-        </form>-->
 
   </body>
 </html>
