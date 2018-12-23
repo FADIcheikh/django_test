@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Django CRUD application!</title>
+
+
+  </head>
+  <body>
+    <div class="container">
+        <h1> Utilisateur DETAILS!</h1>
+        <ul>
+          {% for utilisateur in object_list %}
+          <li><p>Utilisateur ID:{{ utilisateur.id }}</a></p>
+          <p>Nom: {{ utilisateur.nom }}</p>
+          <p>Prenom: {{ utilisateur.pre }}</p>
+           <p name ="email_modif" id="email_modif">EMail: {{ utilisateur.email }}</p>
+
+
+          </li>
+
+        </ul>
+
+
+    </div>
+    <div class="container">
+
+    <form  method="get">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Modifier</button>
+  <button type="submit" class="btn btn-outline-success" name="disconnect" value="disconnect">Déconnecter</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Email</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="update email" name="email" value="{{ utilisateur.email }}" >
+    </div>
+
+          <div class="form-group">
+      <input type="hidden" class="form-control" id="name" placeholder="update password" name="nom" value="{{ utilisateur.nom }}">
+    </div>
+
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="last" placeholder="update password" name="prenom" value="{{ utilisateur.pre }}">
+    </div>
+
+       <div class="form-group">
+        <input type="hidden" class="form-control" id="username" placeholder="update password" name="username" value="{{ utilisateur.login }}">
+    </div>
+
+       <div class="form-group">
+      <input type="hidden" class="form-control" id="password" placeholder="update password" name="password" value="{{ utilisateur.psw }}">
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" name="disconnect" value="update">Modifier</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+           </form>
+    </div>
+
+      {% endfor %}
+
+    <!--
+
+        <form  method="get">
+
+
+
+            <div class="container">
+  <h2>Update EMAIL</h2>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="update email" name="email" value="{{ utilisateur.email }}" >
+    </div>
+
+          <div class="form-group">
+      <input type="hidden" class="form-control" id="name" placeholder="update password" name="nom" value="{{ utilisateur.nom }}">
+    </div>
+
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="last" placeholder="update password" name="prenom" value="{{ utilisateur.pre }}">
+    </div>
+
+       <div class="form-group">
+        <input type="hidden" class="form-control" id="username" placeholder="update password" name="username" value="{{ utilisateur.login }}">
+    </div>
+
+       <div class="form-group">
+      <input type="hidden" class="form-control" id="password" placeholder="update password" name="password" value="{{ utilisateur.psw }}">
+    </div>
+
+
+
+</div>
+
+        <button type="submit" class="btn btn-outline-success" name="disconnect" value="disconnect">Déconnecter</button>
+                    <button type="submit" class="btn btn-primary" name="disconnect" value="update">Modifier</button>
+
+        </form>-->
+
+  </body>
+</html>
